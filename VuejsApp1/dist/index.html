@@ -1,1 +1,70 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>VuejsApp1</title><link href=/js/app.c92ac81e.js rel=preload as=script><link href=/js/chunk-vendors.eea5237c.js rel=preload as=script></head><body><noscript><strong>We're sorry but VuejsApp1 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.eea5237c.js></script><script src=/js/app.c92ac81e.js></script></body></html>
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>Главная страница</title><script src=https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js></script><link href=/js/app.7ea486a5.js rel=preload as=script><link href=/js/chunk-vendors.eea5237c.js rel=preload as=script></head><body><noscript><strong>We're sorry but VuejsApp1 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app2><router-view></router-view><router-view name=ads></router-view><router-view name=content></router-view></div><script src=https://unpkg.com/vue></script><script src=https://unpkg.com/vue-router/dist/vue-router.js></script><script>const NotFound = { template: '<h2>Страница не найдена</h2>' }
+
+        const HomeLink = { template: '<router-link to="/" exact>Главная</router-link>' }
+
+        const Products = {
+            template: `
+          <div>
+          <h2>Товары</h2>
+            <ul>
+              <li><router-link to="/phones">Смартфоны</router-link></li>
+              <li><router-link to="/tablets">Планшеты</router-link></li>
+<li><router-link to="/1">Новый риэлтор</router-link></li>
+            </ul>
+          </div>
+` }
+        const PhonesAds = { template: '<div><h3>Реклама смартфонов</h3><p>Покупайте смартфоны фирмы Y</p></div>' }
+        const TabletsAds = { template: '<div><h3>Реклама планшетов</h3><p>Покупайте планшеты фирмы X!</p></div>' }
+
+        const Phones = { template: '<h2>Все о смартфонах</h2>' }
+        const Tablets = { template: '<h2>Все о планшетах</h2>' }
+
+        const routes = [
+            {
+                path: '/',
+                components: {
+                    default: HomeLink,
+                    content: Products
+                }
+            },
+            {
+                path: '/phones',
+                components: {
+                    default: HomeLink,
+                    ads: PhonesAds,
+                    content: Phones
+                }
+            },
+            {
+                path: '/tablets',
+                components: {
+                    default: HomeLink,
+                    ads: TabletsAds,
+                    content: Tablets
+                }
+            },
+
+            //{ path: '/1', component: require('./My.vue').default },
+            /*
+            {
+                path: '/1',
+                components: {
+                    default: HomeLink,
+                    ads: TabletsAds,
+                    content: Tablets
+                }
+            },
+            */
+
+
+            { path: '*', component: NotFound }
+        ];
+
+        const router = new VueRouter({
+            mode: 'history',
+            routes: routes
+        });
+        new Vue({
+            el: '#app2',
+            router: router
+        })</script><div id=app1><router-view></router-view><router-view name=new></router-view></div><p>Dima!</p><div id=counter><span>Counter: {{ counter }}</span></div><div id=app></div><div id=my></div><p>Dima!</p><div id=my_view>{{ name }} is {{ age }} years old.</div><div id=my2></div><p><a href=1.html>Новый риэлтор</a></p><script src=/js/chunk-vendors.eea5237c.js></script><script src=/js/app.7ea486a5.js></script></body></html>
